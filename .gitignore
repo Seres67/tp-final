@@ -1,0 +1,6 @@
+src/**/*.js
+src/**/*.js.map
+models/**/*.js
+models/**/*.js.map
+.env
+node_modules/
