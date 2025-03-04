@@ -1,6 +1,7 @@
 import { InferCreationAttributes } from "sequelize";
 import User from "../../models/user";
 import argon2 from "argon2";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import userRepository from "../repositories/user.repository";
 
@@ -14,9 +15,10 @@ const register = async (data: RegisterLoginData) => {
   if (exists) {
     throw new Error("");
   }
-  const hash = await argon2.hash(data.password, {
-    secret: Buffer.from(process.env.PASSWORD_SECRET as string),
-  });
+  //const hash = await argon2.hash(data.password, {
+  //  secret: Buffer.from(process.env.PASSWORD_SECRET as string),
+  //});
+  const hash = await bcrypt.hash(data.password, 10);
   const user: InferCreationAttributes<User> = {
     email: data.email,
     hash: hash,
@@ -28,7 +30,8 @@ const register = async (data: RegisterLoginData) => {
 const login = async (data: RegisterLoginData) => {
   const user = await userRepository.findByEmail(data.email);
   if (user) {
-    const match = await argon2.verify(user.hash, data.password);
+    //const match = await argon2.verify(user.hash, data.password);
+    const match = await bcrypt.compare(data.password, user.hash);
     if (match) {
       const token = jwt.sign(
         { id: user.id },
