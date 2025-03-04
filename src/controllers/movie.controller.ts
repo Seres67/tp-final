@@ -26,7 +26,6 @@ const update = async (req: Request, res: Response) => {
   res.status(200).json(movie);
 };
 
-//TODO: ajouter le middleware de vérification d'authentification
 const destroy = async (req: Request, res: Response) => {
   const id = parseInt(req.body.id);
   await movieService.destroy(id);
