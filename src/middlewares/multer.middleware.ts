@@ -13,4 +13,15 @@ const storage = multer.diskStorage({
   },
 });
 
+const upload = multer({
+  storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+      cb(null, true);
+    } else {
+      cb(new Error("Only PNGs and JPEGs are supported."));
+    }
+  },
+});
+
 export default multer({ storage });
