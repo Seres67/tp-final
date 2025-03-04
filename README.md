@@ -28,7 +28,7 @@ POSTGRES_PROD_URL=postgres://postgres:12345@127.0.0.1/rest_prod #TODO: change me
 Changez évidemment en fonction de vos besoins.
 
 Si vous utilisez Docker, vous pouvez lancer un serveur postgres temporaire avec cette commande:  
-`docker run --rm -e POSTGRES_DB=rest_dev -e POSTGRES_PASSWORD=12345 -p 5432:5432 postgres:alpine`
+`docker run --rm -e POSTGRES_DB=rest_dev -e POSTGRES_PASSWORD=12345 -p 5432:5432 postgres:alpine`  
 Ici aussi, changez selon vos besoins.
 
 Lancez le serveur:  
@@ -36,4 +36,4 @@ Lancez le serveur:
 
 ## Notes
 
-Format de `Movies.releaseDate`, exemple: `2025-03-04 12:36:35`
+Format de `Movies.releaseDate`: `2025-03-04 12:36:35` par exemple
