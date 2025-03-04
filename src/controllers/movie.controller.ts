@@ -14,6 +14,8 @@ const findById = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
   const data = req.body;
+  const file = req.file;
+  data.imageUrl = file?.path;
   const movie = await movieService.create(data);
   res.status(201).json(movie);
 };

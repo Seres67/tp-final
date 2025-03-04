@@ -13,7 +13,7 @@ class Movie extends Model<
 > {
   declare id: CreationOptional<number>;
   declare title: string;
-  declare description: string;
+  declare description: CreationOptional<string>;
   declare releaseDate: Date;
   declare imageUrl: string;
 

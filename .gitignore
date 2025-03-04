@@ -4,3 +4,4 @@ models/**/*.js
 models/**/*.js.map
 .env
 node_modules/
+uploads/

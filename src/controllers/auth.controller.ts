@@ -20,6 +20,7 @@ const login = async (req: Request, res: Response) => {
       secure: true,
       sameSite: "strict",
     });
+    res.sendStatus(200);
   } catch (err) {
     res.sendStatus(500);
   }

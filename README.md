@@ -33,3 +33,7 @@ Ici aussi, changez selon vos besoins.
 
 Lancez le serveur:  
 `npm start`
+
+## Notes
+
+Format de `Movies.releaseDate`, exemple: `2025-03-04 12:36:35`
