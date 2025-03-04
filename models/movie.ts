@@ -48,11 +48,10 @@ class Movie extends Model<
       },
       {
         sequelize,
-        modelName: "User",
+        modelName: "Movie",
       },
     );
   }
 }
 
 export default Movie;
-

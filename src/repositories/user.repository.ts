@@ -13,7 +13,7 @@ const findByEmail = async (email: string) => {
   return await User.findOne({ where: { email } });
 };
 
-const create = async (data: InferCreationAttributes<User>) => {
+const create = async (data: Omit<InferCreationAttributes<User>, "id">) => {
   return await User.create(data);
 };
 
